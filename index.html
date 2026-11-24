@@ -557,6 +557,22 @@ main>section.section{padding-left:clamp(28px,6vw,96px)!important;padding-right:c
 }
 
 </style>
+<style>
+
+/* Four academic qualifications, balanced across the About page */
+#about .education-facts{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:clamp(12px,2vw,28px)!important;
+}
+#about .education-facts>div{min-width:0}
+#about .education-facts small{display:block;margin-bottom:5px}
+#about .education-facts strong{display:block;overflow-wrap:anywhere}
+@media(max-width:700px){
+  #about .education-facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -596,6 +612,7 @@ main>section.section{padding-left:clamp(28px,6vw,96px)!important;padding-right:c
           <div><small>Dr.</small><strong>IPB University</strong></div>
           <div><small>M.Sc.</small><strong>Yeungnam University</strong></div>
           <div><small>S.Hut.</small><strong>Winaya Mukti University</strong></div>
+          <div><small>Diploma</small><strong>IPB University</strong></div>
         </div></div>
       </div>
     </section>
