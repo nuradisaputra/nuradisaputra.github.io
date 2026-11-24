@@ -492,6 +492,71 @@ footer{display:none!important}
 }
 
 </style>
+<style>
+
+/* Layout refinement requested: remove repeated side labels and use available width */
+.section-kicker{display:none!important}
+main>section.section{grid-template-columns:minmax(0,1fr)!important}
+main>section.section .section-main{
+  width:100%!important;
+  max-width:1280px!important;
+  margin-inline:auto!important;
+}
+main>section.section{padding-left:clamp(28px,6vw,96px)!important;padding-right:clamp(28px,6vw,96px)!important}
+#identifiers .identifier-grid{
+  width:100%!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+  align-items:stretch!important;
+}
+#identifiers .identifier-card{
+  width:100%!important;
+  min-width:0!important;
+  min-height:220px!important;
+  height:auto!important;
+  box-sizing:border-box!important;
+  padding:24px 26px 22px!important;
+  overflow:visible!important;
+}
+#identifiers .id-logo-img{
+  height:76px!important;
+  max-width: min(100%,230px)!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  margin-bottom:18px!important;
+}
+#identifiers .identifier-card>em{
+  display:block!important;
+  position:static!important;
+  white-space:normal!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+  line-height:1.5!important;
+  padding-top:18px!important;
+  margin-top:auto!important;
+}
+#identifiers .identifier-card>strong{
+  display:block!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  line-height:1.4!important;
+}
+@media(max-width:850px){
+  main>section.section{padding:28px 6vw!important}
+  #identifiers .identifier-card{min-height:190px!important;padding:18px!important}
+}
+@media(max-width:560px){
+  #identifiers .identifier-grid{grid-template-columns:1fr!important;gap:10px!important}
+  #identifiers .identifier-card{
+    min-height:0!important;
+    display:flex!important;
+    padding:14px 16px!important;
+  }
+  #identifiers .id-logo-img{height:48px!important;margin-bottom:8px!important}
+  #identifiers .identifier-card>em{padding-top:8px!important}
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
