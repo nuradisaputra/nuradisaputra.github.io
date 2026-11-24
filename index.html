@@ -351,6 +351,112 @@ body.sidebar-collapsed .sidebar-role{display:none}
 }
 
 </style>
+<style>
+
+/* FINAL NAVIGATION MODEL: ONE VIEWPORT PER SIDEBAR MENU */
+html,body{width:100%;height:100%;min-height:0;margin:0;overflow:hidden!important;scroll-behavior:auto!important;scroll-snap-type:none!important}
+body{height:100vh}
+.site-header{z-index:100}
+main{height:100vh;min-height:0;overflow:hidden!important}
+main>section{display:none!important;width:100%;height:100vh;min-height:0!important;max-height:100vh;overflow:hidden!important;box-sizing:border-box;scroll-snap-align:none!important;scroll-margin:0!important}
+main>section.page-active{display:grid!important}
+main>section.hero.page-active{display:flex!important}
+main>section[hidden]{display:none!important}
+footer{display:none!important}
+.section{padding:clamp(24px,5vh,58px) clamp(28px,6vw,90px);grid-template-columns:125px minmax(0,1fr);align-items:center}
+.section-main{max-height:100%;min-height:0;overflow:hidden}
+.section-heading{margin-bottom:clamp(14px,2.5vh,28px)}
+.section-heading h2{margin-top:8px}
+.about-content{max-width:900px}
+.about-content>p:not(.large-copy){font-size:clamp(12px,1vw,14px)}
+.education-facts{margin-top:clamp(16px,3vh,28px)}
+.education-facts small{font:600 11px "Space Grotesk";color:#4D6657}
+.education-facts strong{font:600 clamp(15px,1.6vw,21px) "Space Grotesk";color:#087F65}
+.research-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.research-card{min-height:0;height:clamp(155px,25vh,205px);padding:clamp(14px,2vw,22px)}
+.research-symbol{margin:2px 0 8px;font-size:25px}
+.research-card h3{font-size:clamp(16px,1.6vw,19px);margin-bottom:7px}
+.research-card p{font-size:clamp(11px,.95vw,13px);margin:5px 0}
+.identifier-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.identifier-card{min-height:0;height:clamp(160px,24vh,200px);padding:clamp(14px,2vw,22px)}
+.identifier-card strong{font-size:clamp(13px,1.3vw,17px)}
+.publications{padding-top:clamp(22px,4vh,45px)!important}
+.publications .section-main{padding-top:0;max-height:100%;overflow:hidden}
+.publications .section-heading{margin-bottom:12px}
+.publications .section-heading h2{font-size:clamp(30px,3.6vw,48px)}
+.publication-tools{margin:0 0 8px}
+.publication-list article{padding:clamp(10px,1.6vh,16px) 0;gap:14px}
+.publication-list h3{font-size:clamp(14px,1.35vw,17px);line-height:1.25}
+.publication-list p{font-size:11px}
+.pub-tags{font-size:7px}
+.publication-pagination{margin:12px 0 0}
+.content-placeholder{min-height:0;height:clamp(180px,35vh,270px);margin-top:12px}
+.contact{display:grid!important;grid-template-columns:1fr 300px;align-items:center;padding:clamp(30px,7vh,80px) clamp(28px,8vw,120px)}
+.hero{padding:clamp(45px,10vh,100px) clamp(35px,10vw,145px) 55px;min-height:0}
+.hero-copy{max-width:min(58%,680px)}
+.hero h1{font-size:clamp(46px,6.3vw,82px)}
+.hero-visual{max-height:75vh}
+.visual-label.label-bottom{display:none!important}
+.hero-meta{margin-top:clamp(24px,5vh,55px)}
+.nav a.active{background:#C9E3C9!important;color:#104C35!important;border:1px solid #75A982!important;font-weight:700;box-shadow:inset 3px 0 0 #087F65}
+.nav a.active.nav-contact{background:#C9E3C9!important;color:#104C35!important}
+@media(min-width:851px){
+ body{padding-left:260px!important}
+ .site-header{position:fixed!important;left:0;top:0;bottom:0;width:260px!important;height:100vh!important}
+ body.sidebar-collapsed{padding-left:76px!important}
+ body.sidebar-collapsed .site-header{width:76px!important}
+ main{width:100%;height:100vh}
+}
+@media(max-width:850px){
+ body{padding-left:0!important}
+ .site-header{position:fixed!important;top:0;left:0;right:0;width:100%!important;height:82px!important}
+ main{position:fixed;top:82px;left:0;right:0;height:calc(100vh - 82px);width:100%}
+ main>section{height:calc(100vh - 82px);max-height:calc(100vh - 82px)}
+ .hero{padding:35px 7vw}
+ .hero-copy{max-width:75%}
+ .hero-visual{right:-18%;width:65%;opacity:.55}
+ .section{padding:28px 7vw;grid-template-columns:1fr;gap:8px}
+ .section-kicker{font-size:8px}
+ .section-main{width:100%}
+ .contact{grid-template-columns:1fr;gap:18px;padding:35px 7vw}
+ .nav.open{position:absolute;top:81px;left:0;right:0;max-height:calc(100vh - 82px);overflow:auto}
+ .sidebar-role{margin-top:10px}
+}
+@media(max-width:560px){
+ .hero-copy{max-width:100%}
+ .hero h1{font-size:clamp(38px,11vw,54px)}
+ .hero-visual{opacity:.22;right:-32%;width:85%}
+ .hero-lead{font-size:13px}
+ .hero-meta{gap:8px 14px;font-size:7px}
+ .section{padding:22px 5vw}
+ .research-grid{grid-template-columns:1fr;gap:7px}
+ .research-card{height:auto;min-height:0;padding:10px 14px}
+ .research-symbol{display:none}
+ .research-card h3{font-size:14px}
+ .research-card p{font-size:10px}
+ .research-card .tag{font-size:6px}
+ .identifier-grid{grid-template-columns:1fr;gap:7px}
+ .identifier-card{height:auto;min-height:0;padding:9px 12px;display:grid;grid-template-columns:38px 1fr;column-gap:10px;align-items:center}
+ .identifier-card .id-logo{grid-row:1/4;margin:0}
+ .identifier-card span:not(.id-logo){font-size:7px}
+ .identifier-card strong{font-size:12px}
+ .identifier-card em{font-size:9px}
+ .publications .section-heading h2{font-size:27px}
+ .publication-list article{grid-template-columns:38px minmax(0,1fr) 36px;gap:8px;padding:8px 0}
+ .publication-list h3{font-size:12px}
+ .publication-list p{font-size:9px;line-height:1.3}
+ .pub-tags{font-size:6px}
+ .publication-pagination button{min-width:28px;height:28px;font-size:10px}
+}
+@media print{
+ html,body{height:auto!important;overflow:visible!important}
+ main{height:auto!important;overflow:visible!important;position:static!important}
+ main>section{display:none!important;height:auto!important;max-height:none!important;overflow:visible!important}
+ main>section#publications{display:block!important}
+ .publication-list article,.publication-list article[hidden]{display:grid!important}
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -372,11 +478,11 @@ body.sidebar-collapsed .sidebar-role{display:none}
         <h1>Advancing Materials.<br><span>Enabling the Future.</span></h1>
         <p class="hero-lead">Researcher in <strong>materials science, porous materials, activated carbon, and energy storage technologies</strong>. Connecting fundamental research with practical solutions for a sustainable future.</p>
         <div class="hero-actions"><a class="button primary" href="#research">Explore Research <span>↗</span></a><a class="button secondary" href="#contact">Get in Touch</a></div>
-        <div class="hero-meta"><span>01 — MATERIALS SCIENCE</span><span>02 — ENERGY STORAGE</span><span>03 — NANOTECHNOLOGY</span></div>
+        <div class="hero-meta"><span>MATERIALS SCIENCE</span><span>ENERGY STORAGE</span><span>NANOTECHNOLOGY</span></div>
       </div>
       <div class="hero-visual" aria-label="Abstract illustration inspired by material structures">
         <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orb-core"></div>
-        <div class="visual-label label-top">POROUS MATERIALS <b>↗</b></div><div class="visual-label label-bottom">RESEARCH / 2026</div>
+        <div class="visual-label label-top">POROUS MATERIALS <b>↗</b></div>
         <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div>
       </div>
       
@@ -464,59 +570,115 @@ body.sidebar-collapsed .sidebar-role{display:none}
 
   <footer><a class="brand" href="#home"><span class="brand-mark">M</span><span>DR. NUR ADI SAPUTRA<span class="brand-sub">MATERIALS • ENERGY • INNOVATION</span></span></a><p>© <span id="year"></span> Dr. Nur Adi Saputra. All rights reserved.</p><a href="#home">BACK TO TOP ↑</a></footer>
   <script>
-const toggle=document.querySelector('.menu-toggle');
-const nav=document.querySelector('.nav');
-const desktopQuery=window.matchMedia('(min-width: 851px)');
-toggle.addEventListener('click',()=>{
- if(desktopQuery.matches){
-  const collapsed=document.body.classList.toggle('sidebar-collapsed');
-  toggle.setAttribute('aria-expanded',String(!collapsed));
-  toggle.setAttribute('aria-label',collapsed?'Expand sidebar navigation':'Collapse sidebar navigation');
- }else{
-  const open=nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded',String(open));
- }
-});
-nav.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{
- if(!desktopQuery.matches){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
-}));
-desktopQuery.addEventListener('change',()=>{
- document.body.classList.remove('sidebar-collapsed');nav.classList.remove('open');toggle.setAttribute('aria-expanded','true');
-});
-const menuLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
-const pageSections=[...document.querySelectorAll('main > section[id]')];
-const sectionObserver=new IntersectionObserver(entries=>{
- entries.forEach(entry=>{
-  if(entry.isIntersecting&&entry.intersectionRatio>=0.3){
-   menuLinks.forEach(link=>{
-    const active=link.getAttribute('href')==='#'+entry.target.id;
-    link.classList.toggle('active',active);
-    if(active)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');
-   });
+(() => {
+  const nav = document.querySelector('.nav');
+  const toggle = document.querySelector('.menu-toggle');
+  const desktopQuery = window.matchMedia('(min-width: 851px)');
+  const pages = [...document.querySelectorAll('main > section[id]')];
+  const links = [...document.querySelectorAll('.nav a[href^="#"]')];
+
+  function showPage(id, updateAddress = true) {
+    const target = pages.find(section => section.id === id) || pages.find(section => section.id === 'home');
+    pages.forEach(section => {
+      const active = section === target;
+      section.classList.toggle('page-active', active);
+      section.hidden = !active;
+      if (active) section.setAttribute('aria-current', 'page');
+      else section.removeAttribute('aria-current');
+    });
+    links.forEach(link => {
+      const active = link.getAttribute('href') === '#' + target.id;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+    if (updateAddress && location.hash !== '#' + target.id) {
+      history.replaceState(null, '', '#' + target.id);
+    }
+    if (!desktopQuery.matches) {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
   }
- });
-},{threshold:[0.3,0.5,0.7]});
-pageSections.forEach(section=>sectionObserver.observe(section));
-const items=[...document.querySelectorAll('#publication-list article')];
-const pager=document.getElementById('publication-pagination');
-const perPage=4;let page=1;const pages=Math.ceil(items.length/perPage);
-function renderPage(nextPage){
- page=Math.max(1,Math.min(pages,nextPage));
- items.forEach((item,i)=>item.hidden=i<(page-1)*perPage||i>=page*perPage);
- pager.replaceChildren();
- const prev=document.createElement('button');prev.type='button';prev.textContent='Previous';prev.disabled=page===1;
- prev.addEventListener('click',()=>renderPage(page-1));pager.append(prev);
- for(let n=1;n<=pages;n++){
-  const b=document.createElement('button');b.type='button';b.textContent=String(n);
-  if(n===page)b.setAttribute('aria-current','page');
-  b.setAttribute('aria-label','Publication page '+n);b.addEventListener('click',()=>renderPage(n));pager.append(b);
- }
- const next=document.createElement('button');next.type='button';next.textContent='Next';next.disabled=page===pages;
- next.addEventListener('click',()=>renderPage(page+1));pager.append(next);
-}
-renderPage(1);
-document.getElementById('print-publications').addEventListener('click',()=>window.print());
-document.getElementById('year').textContent=new Date().getFullYear();
+
+  links.forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    showPage(link.getAttribute('href').slice(1));
+  }));
+  document.querySelectorAll('.brand[href="#home"], .hero-actions a[href^="#"]').forEach(link => {
+    link.addEventListener('click', event => {
+      const id = link.getAttribute('href').slice(1);
+      if (pages.some(section => section.id === id)) {
+        event.preventDefault();
+        showPage(id);
+      }
+    });
+  });
+
+  toggle.addEventListener('click', () => {
+    if (desktopQuery.matches) {
+      const collapsed = document.body.classList.toggle('sidebar-collapsed');
+      toggle.setAttribute('aria-expanded', String(!collapsed));
+      toggle.setAttribute('aria-label', collapsed ? 'Expand sidebar navigation' : 'Collapse sidebar navigation');
+    } else {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    }
+  });
+
+  desktopQuery.addEventListener('change', () => {
+    document.body.classList.remove('sidebar-collapsed');
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  });
+
+  window.addEventListener('hashchange', () => showPage(location.hash.slice(1), false));
+
+  // Publication pagination: three records per screen, with all records included in print.
+  const publicationItems = [...document.querySelectorAll('#publication-list article')];
+  const pager = document.getElementById('publication-pagination');
+  const pageSize = 3;
+  const pageCount = Math.max(1, Math.ceil(publicationItems.length / pageSize));
+  let publicationPage = 1;
+
+  function renderPublicationPage(nextPage) {
+    publicationPage = Math.max(1, Math.min(pageCount, nextPage));
+    publicationItems.forEach((item, index) => {
+      item.hidden = index < (publicationPage - 1) * pageSize || index >= publicationPage * pageSize;
+    });
+    pager.replaceChildren();
+
+    const previous = document.createElement('button');
+    previous.type = 'button';
+    previous.textContent = 'Previous';
+    previous.disabled = publicationPage === 1;
+    previous.addEventListener('click', () => renderPublicationPage(publicationPage - 1));
+    pager.append(previous);
+
+    for (let number = 1; number <= pageCount; number++) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = String(number);
+      button.setAttribute('aria-label', 'Publication page ' + number);
+      if (number === publicationPage) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', () => renderPublicationPage(number));
+      pager.append(button);
+    }
+
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.textContent = 'Next';
+    next.disabled = publicationPage === pageCount;
+    next.addEventListener('click', () => renderPublicationPage(publicationPage + 1));
+    pager.append(next);
+  }
+
+  renderPublicationPage(1);
+  document.getElementById('print-publications').addEventListener('click', () => window.print());
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  showPage(location.hash.slice(1) || 'home', false);
+})();
 </script>
 </body>
 </html>
