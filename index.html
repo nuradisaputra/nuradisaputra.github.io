@@ -846,7 +846,7 @@ main>section.section{padding-left:clamp(28px,6vw,96px)!important;padding-right:c
   // Publication pagination: three records per screen, with all records included in print.
   const publicationItems = [...document.querySelectorAll('#publication-list article')];
   const pager = document.getElementById('publication-pagination');
-  const pageSize = 3;
+  const pageSize = 5;
   const pageCount = Math.max(1, Math.ceil(publicationItems.length / pageSize));
   let publicationPage = 1;
 
