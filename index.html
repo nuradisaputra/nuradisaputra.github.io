@@ -897,12 +897,13 @@ main>section.page-active{
 </style>
 <style>
 
-/* Reviewer cards link to SCImagoJR quartile profiles, not certificate files */
-#reviewer .reviewer-card{min-height:230px!important}
+/* Show reviewer certificate previews and retain SCImagoJR quartile links */
+#reviewer .reviewer-card{min-height:390px!important}
 #reviewer .reviewer-card h3{min-height:2.6em!important}
-#reviewer .reviewer-detail{margin-bottom:20px!important}
-#reviewer .certificate-link,
-#reviewer .certificate-caption{display:none!important}
+#reviewer .reviewer-detail{margin-bottom:12px!important}
+#reviewer .certificate-link{display:flex!important;min-height:150px!important;height:170px!important}
+#reviewer .certificate-link img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
+#reviewer .certificate-caption{display:block!important}
 #reviewer .scimago-link{
   display:inline-flex!important;
   align-items:center!important;
