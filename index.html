@@ -699,16 +699,32 @@ main>section.section{padding-left:clamp(28px,6vw,96px)!important;padding-right:c
 }
 
 </style>
+<style>
+
+/* Sidebar order and independent full-screen menu pages */
+.nav{gap:12px!important}
+.nav a{display:flex;align-items:center;min-height:44px;box-sizing:border-box}
+.nav .nav-contact{margin-top:0!important}
+main>section[hidden]{display:none!important}
+main>section.page-active{
+ min-height:100vh!important;height:100vh!important;max-height:100vh!important;
+ overflow-y:auto!important;box-sizing:border-box!important;align-content:center!important
+}
+@media(max-width:850px){
+ main>section.page-active{min-height:calc(100vh - 82px)!important;height:calc(100vh - 82px)!important;max-height:calc(100vh - 82px)!important}
+}
+
+</style>
 </head>
 <body>
 <header class="site-header">
 <a class="brand" href="#home"><span class="brand-mark">M</span><span>DR. NUR ADI SAPUTRA<span class="brand-sub">MATERIALS • ENERGY • INNOVATION</span></span></a>
 <button aria-expanded="false" aria-label="Open navigation" class="menu-toggle">☰</button>
-<nav aria-label="Main navigation" class="nav">
-<a href="#home">Home</a><a href="#about">About</a><a href="#research">Research</a><a href="#identifiers">Research IDs</a><a href="#publications">Publications</a>
-<a href="#projects">Projects</a><a href="#insights">Insights</a>
-<div class="sidebar-role"><span>POSITION</span><strong>Researcher</strong><small>National Research and Innovation Agency (BRIN)</small></div>
-<a class="nav-contact" href="#contact">Contact ↗</a>
+<nav aria-label="Main navigation" class="nav"><a href="#home">Home</a><a href="#research">Research Field</a><a href="#identifiers">Research IDs</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#oral-presentation">Oral Presentation</a><a href="#books">Books</a><a href="#patents">Patents</a><a href="#reviewer">Reviewer</a><a href="#metadata-ongoing">Metadata (On-going)</a><a href="#about">About</a><a class="nav-contact" href="#contact">Contact ↗</a>
+
+
+
+
 </nav>
 </header>
 <main>
@@ -727,7 +743,7 @@ main>section.section{padding-left:clamp(28px,6vw,96px)!important;padding-right:c
 <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div>
 </div>
 </section>
-<section class="section about" id="about">
+<section class="section content-page" id="oral-presentation"><div class="section-main"><div class="section-heading"><h2>Oral Presentation</h2></div></div></section><section class="section content-page" id="books"><div class="section-main"><div class="section-heading"><h2>Books</h2></div></div></section><section class="section content-page" id="patents"><div class="section-main"><div class="section-heading"><h2>Patents</h2></div></div></section><section class="section content-page" id="reviewer"><div class="section-main"><div class="section-heading"><h2>Reviewer</h2></div></div></section><section class="section content-page" id="metadata-ongoing"><div class="section-main"><div class="section-heading"><h2>Metadata (On-going)</h2></div></div></section><section class="section about" id="about">
 <div class="section-kicker">ABOUT</div><div class="section-main">
 <div class="section-heading"><p class="eyebrow">PROFESSIONAL PROFILE</p><h2>Research driven by science, focused on solutions.</h2></div>
 <div class="about-content"><p class="large-copy">I am a Researcher at the National Research and Innovation Agency (BRIN), Indonesia. My academic qualifications include a doctoral degree (Dr.) from IPB University, a Master of Science (M.Sc.) from Yeungnam University, a forestry degree (S.Hut.) from Winaya Mukti University, and a Diploma from IPB University. My research interests span materials science, porous carbon materials, and energy storage technologies.</p><p>My research interests include the design and development of porous carbon materials, activated carbon processing, nanomaterials, and electrochemical energy storage. This website brings together my research themes, selected projects, scientific outputs, and opportunities for academic and industrial collaboration.</p>
@@ -863,16 +879,7 @@ main>section.section{padding-left:clamp(28px,6vw,96px)!important;padding-right:c
 </div>
 </div>
 </section>
-<section class="section insights" id="insights">
-<div class="section-kicker">INSIGHTS</div><div class="section-main">
-<div class="section-heading"><p class="eyebrow">RESEARCH NOTES</p><h2>Research notes &amp; insights</h2><p class="muted">A space for science communication, literature reviews, conference notes, and emerging technology perspectives.</p></div>
-<div class="content-placeholder">
-<span class="placeholder-mark">+</span>
-<h3>Journal reading summaries</h3>
-<p>This section is reserved for summaries of scientific articles and journals that have been read. Content will be added and updated separately.</p>
-</div>
-</div>
-</section>
+
 <section class="contact" id="contact"><div><p class="eyebrow">CONTACT</p><h2>Let’s build meaningful<br/><span>research collaborations.</span></h2><p>Open to scientific discussions, research collaborations, academic invitations, and technology development opportunities.</p></div><div class="contact-detail"><span>EMAIL</span><a href="mailto:nadisaputra@gmail.com">nadisaputra@gmail.com ↗</a><span>INSTITUTION</span><p>National Research and Innovation Agency (BRIN)</p><span>LOCATION</span><p>Indonesia</p></div></section>
 </main>
 <footer><a class="brand" href="#home"><span class="brand-mark">M</span><span>DR. NUR ADI SAPUTRA<span class="brand-sub">MATERIALS • ENERGY • INNOVATION</span></span></a><p>© <span id="year"></span> Dr. Nur Adi Saputra. All rights reserved.</p><a href="#home">BACK TO TOP ↑</a></footer>
