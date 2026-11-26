@@ -715,6 +715,75 @@ main>section.page-active{
 }
 
 </style>
+<style>
+
+/* Sidebar fit: show the complete menu whenever viewport height permits */
+@media (min-width: 851px) {
+  .site-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    height: 100vh !important;
+    min-height: 0 !important;
+    padding: 22px 20px 18px !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+  }
+  .site-header .brand {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+  .site-header .menu-toggle {
+    flex: 0 0 38px !important;
+    align-self: flex-end !important;
+    margin: 12px 0 8px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .site-header .nav {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 3px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    padding: 0 0 3px !important;
+    margin: 0 !important;
+    scrollbar-width: thin;
+    scrollbar-color: #B7D2B8 transparent;
+  }
+  .site-header .nav a {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    min-height: 34px !important;
+    height: auto !important;
+    padding: 7px 12px !important;
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    font-size: 12px !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+  .site-header .nav .nav-contact {
+    margin-top: 3px !important;
+  }
+}
+@media (min-width: 851px) and (max-height: 650px) {
+  .site-header { padding-top: 12px !important; padding-bottom: 10px !important; }
+  .site-header .menu-toggle { margin-top: 6px !important; margin-bottom: 4px !important; }
+  .site-header .nav { gap: 1px !important; }
+  .site-header .nav a { min-height: 30px !important; padding-top: 5px !important; padding-bottom: 5px !important; }
+}
+
+</style>
 </head>
 <body>
 <header class="site-header">
