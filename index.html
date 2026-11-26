@@ -1377,7 +1377,30 @@ main > section.contact.page-active {
 
   window.addEventListener('hashchange', () => showPage(location.hash.slice(1), false));
 
+  // Sort academic records by newest year; ties and undated records use reverse entry order.
+  function sortNewestFirst(list, getYear) {
+    const items = [...list.children];
+    const originalIndex = new Map(items.map((item, index) => [item, index]));
+    items.sort((a, b) => {
+      const ay = getYear(a), by = getYear(b);
+      if (ay !== by) return by - ay;
+      return originalIndex.get(b) - originalIndex.get(a);
+    });
+    items.forEach(item => list.appendChild(item));
+    return items;
+  }
+  function yearFromText(value) {
+    const text = String(value || '').trim();
+    const match = text.match(/20\d{2}|19\d{2}/);
+    if (match) return Number(match[0]);
+    if (/^S0?22$/i.test(text)) return 2022;
+    return 0;
+  }
+
+
   // Publication pagination: eight records per screen, with all records included in print.
+  const publicationList = document.getElementById('publication-list');
+  if (publicationList) sortNewestFirst(publicationList, item => yearFromText(item.querySelector('.pub-year')?.textContent));
   const publicationItems = [...document.querySelectorAll('#publication-list article')];
   const pager = document.getElementById('publication-pagination');
   const pageSize = 8;
@@ -1462,7 +1485,7 @@ main > section.contact.page-active {
   const projectList = document.getElementById('project-list');
   const projectPager = document.getElementById('projects-pagination');
   if (projectList && projectPager) {
-    const projectItems = [...projectList.querySelectorAll('.project-item')];
+    const projectItems = sortNewestFirst(projectList, item => yearFromText(item.querySelector('.project-year')?.textContent));
     const projectPageSize = 5;
     const projectPageCount = Math.max(1, Math.ceil(projectItems.length / projectPageSize));
     let projectPage = 1;
@@ -1496,7 +1519,7 @@ main > section.contact.page-active {
   const oralList = document.getElementById('oral-presentation-list');
   const oralPager = document.getElementById('oral-presentation-pagination');
   if (oralList && oralPager) {
-    const oralItems = [...oralList.querySelectorAll('.oral-presentation-item')];
+    const oralItems = sortNewestFirst(oralList, item => yearFromText(item.dataset.year || item.querySelector('.oral-year')?.textContent));
     const oralPageSize = 5;
     const oralPageCount = Math.max(1, Math.ceil(oralItems.length / oralPageSize));
     let oralPage = 1;
@@ -1526,11 +1549,17 @@ main > section.contact.page-active {
   }
 
 
+  const booksList = document.getElementById('books-list');
+  if (booksList) sortNewestFirst(booksList, item => yearFromText(item.querySelector('.book-meta span:first-child strong')?.textContent));
+
   // Patents pagination: five records per page.
   const patentList = document.getElementById('patent-list');
   const patentPager = document.getElementById('patents-pagination');
   if (patentList && patentPager) {
-    const patentItems = [...patentList.querySelectorAll('.patent-item')];
+    const patentItems = sortNewestFirst(patentList, item => {
+      const yearText = item.querySelector('.patent-meta span:first-child strong')?.textContent;
+      return yearFromText(yearText) || yearFromText(item.querySelector('.patent-meta span:last-child strong')?.textContent);
+    });
     const patentPageSize = 5;
     const patentPageCount = Math.max(1, Math.ceil(patentItems.length / patentPageSize));
     let patentPage = 1;
