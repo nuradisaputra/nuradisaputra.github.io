@@ -1420,45 +1420,8 @@ main > section.contact.page-active {
   document.getElementById('year').textContent = new Date().getFullYear();
 
   showPage(location.hash.slice(1) || 'home', false);
-})();
 
   // Reviewer pagination: newest review/input date first, three records per page.
-  const reviewerGrid = document.getElementById('reviewer-list');
-  const reviewerPager = document.getElementById('reviewer-pagination');
-  if (reviewerGrid && reviewerPager) {
-    const reviewerItems = [...reviewerGrid.querySelectorAll('.reviewer-card')];
-    reviewerItems.sort((a, b) => (b.dataset.sortDate || '').localeCompare(a.dataset.sortDate || ''));
-    reviewerItems.forEach(item => reviewerGrid.appendChild(item));
-    const reviewerPageSize = 3;
-    const reviewerPageCount = Math.max(1, Math.ceil(reviewerItems.length / reviewerPageSize));
-    let reviewerPage = 1;
-    function renderReviewerPage(nextPage) {
-      reviewerPage = Math.max(1, Math.min(reviewerPageCount, nextPage));
-      reviewerItems.forEach((item, index) => {
-        item.hidden = index < (reviewerPage - 1) * reviewerPageSize || index >= reviewerPage * reviewerPageSize;
-      });
-      reviewerPager.replaceChildren();
-      const prev = document.createElement('button');
-      prev.type = 'button'; prev.textContent = 'Previous'; prev.disabled = reviewerPage === 1;
-      prev.addEventListener('click', () => renderReviewerPage(reviewerPage - 1));
-      reviewerPager.appendChild(prev);
-      for (let i = 1; i <= reviewerPageCount; i++) {
-        const button = document.createElement('button');
-        button.type = 'button'; button.textContent = String(i);
-        if (i === reviewerPage) button.setAttribute('aria-current', 'page');
-        button.addEventListener('click', () => renderReviewerPage(i));
-        reviewerPager.appendChild(button);
-      }
-      const next = document.createElement('button');
-      next.type = 'button'; next.textContent = 'Next'; next.disabled = reviewerPage === reviewerPageCount;
-      next.addEventListener('click', () => renderReviewerPage(reviewerPage + 1));
-      reviewerPager.appendChild(next);
-    }
-    renderReviewerPage(1);
-  }
-
-
-  // Reviewer pagination: newest record first, three records per page.
   const reviewerGrid = document.getElementById('reviewer-list');
   const reviewerPager = document.getElementById('reviewer-pagination');
   if (reviewerGrid && reviewerPager) {
@@ -1595,6 +1558,7 @@ main > section.contact.page-active {
     renderPatentPage(1);
   }
 
+})();
 </script>
 </body>
 </html>
